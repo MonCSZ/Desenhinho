@@ -1,26 +1,41 @@
+let cor;
+let posicaoHorizontal // x
+let posicaoVertical // y
+
 function setup() {
-    createCanvas(400, 400);
+  createCanvas(400, 400);
+  background("white");
+   cor = color(random(0, 255), random(0, 255), random(0, 255));
+  posicaoHorizontal = 200;
+  posicaoVertical = 200;
+}
+
+function draw() {
+  
+  fill(cor);
+  circle(posicaoHorizontal, posicaoVertical, 50);
+  
+  if(mouseX < posicaoHorizontal) {
+    posicaoHorizontal--;
   }
   
-  function draw() {
-    background("white");
-    fill("black");
-    textSize(64);
-    textAlign(CENTER, CENTER)
-    
-    let maximo = width;
-    let minimo = 0;
-    let palavra = ":(";
-    let quantidade = map(mouseX, 0, width, 1, palavra.length);
-    let parcial = palavra.substring(0,quantidade);
-    text(parcial,200,200);
-    
-  //  if(mouseX < 50){
-  //    let palavra = ":(";
-  //    text(palavra, 200, 200);
-  //  } else {
-  //    let palavra = ":(";
-  //    text(palavra, 200, 200);
-  //  }
+  if(mouseX > posicaoHorizontal) {
+    posicaoHorizontal++;
   }
   
+  if(mouseY < posicaoVertical) {
+    posicaoVertical--;
+  }
+  
+  if(mouseY > posicaoVertical) {
+    posicaoVertical++;
+    
+  }
+  
+   if(mouseIsPressed){
+    cor = color(random(0, 255), random(0, 255), random(0, 255), random(0, 100));
+
+   }
+  
+  
+}
